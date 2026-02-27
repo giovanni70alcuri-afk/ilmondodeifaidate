@@ -31,9 +31,12 @@ async function inizializzaSito() {
     }
 
     // carosello libri
-    if (datiLibri && datiLibri.libri && track) {
+const datiLibri = await caricaDati('libri.json');
+const track = document.getElementById('track-libri');
 
-    // duplico elementi per effetto infinito
+if (datiLibri && datiLibri.libri && track) {
+
+    // duplico per effetto infinito
     const lista = [...datiLibri.libri, ...datiLibri.libri];
 
     track.innerHTML = lista.map(l => `
@@ -44,8 +47,8 @@ async function inizializzaSito() {
         </div>
     `).join('');
 
-    // scroll automatico
-    let scrollSpeed = 0.3;
+    // scroll automatico continuo
+    let scrollSpeed = 0.4;
 
     function autoScroll() {
         track.scrollLeft += scrollSpeed;
