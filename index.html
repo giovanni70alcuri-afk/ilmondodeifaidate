@@ -10,15 +10,11 @@
 <body>
 
 <header>
-    <!-- Pulsante hamburger per sidebar -->
-    <button id="toggleSidebar" class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </button>
     <div class="logo-centrale">il tutto fai da te</div>
 </header>
 
-<!-- sidebar sinistra (parte chiusa all'avvio) -->
-<nav class="sidebar-left sidebar-hidden" id="sidebar-left-container">
+<!-- sidebar sinistra -->
+<nav class="sidebar-left" id="sidebar-left-container">
     <div class="menu-section">
         <a href="javascript:location.reload()" class="nav-item">
             <i class="fas fa-home"></i> home
@@ -72,24 +68,11 @@
 
 <footer id="footer-sito"></footer>
 
-<!-- Pulsante per aprire la chat -->
-<button id="openBot" class="bot-toggle">
-    <i class="fas fa-robot"></i>
-</button>
-
-<!-- Finestra chatbot -->
-<div id="chatbot" class="chatbot-hidden">
-    <div class="chat-header">
-        Chatbot
-        <button id="closeBot" class="bot-close">X</button>
-    </div>
-    <div class="chat-body" id="chat-body">
-        <p>Ciao! Scrivi: libri, restauro, elettronica, video o contatti.</p>
-    </div>
-    <div class="chat-input">
-        <input type="text" id="bot-input" placeholder="Scrivi..."/>
-        <button onclick="inviaMessaggioBot()">Invia</button>
-    </div>
+<!-- chat -->
+<div class="chat-box">
+    <div id="chat-display"></div>
+    <input id="user-input" placeholder="scrivi..." />
+    <button onclick="inviaMessaggio()">invia</button>
 </div>
 
 <script src="js/script.js"></script>
