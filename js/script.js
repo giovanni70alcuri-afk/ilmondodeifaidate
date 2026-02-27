@@ -31,17 +31,34 @@ async function inizializzaSito() {
     }
 
     // carosello libri
-    const datiLibri = await caricaDati('libri.json');
-    const track = document.getElementById('track-libri');
-
     if (datiLibri && datiLibri.libri && track) {
-        track.innerHTML = [...datiLibri.libri, ...datiLibri.libri].map(l => `
-    <div class="slide-item">
-        <a href="${l.link}" target="_blank">
-            <img src="${l.immagine}" alt="${l.titolo}" loading="lazy">
-        </a>
-    </div>
-`).join('');
+
+    // duplico elementi per effetto infinito
+    const lista = [...datiLibri.libri, ...datiLibri.libri];
+
+    track.innerHTML = lista.map(l => `
+        <div class="slide-item">
+            <a href="${l.link}" target="_blank">
+                <img src="${l.immagine}" alt="${l.titolo}" loading="lazy">
+            </a>
+        </div>
+    `).join('');
+
+    // scroll automatico
+    let scrollSpeed = 0.3;
+
+    function autoScroll() {
+        track.scrollLeft += scrollSpeed;
+
+        if (track.scrollLeft >= track.scrollWidth / 2) {
+            track.scrollLeft = 0;
+        }
+
+        requestAnimationFrame(autoScroll);
+    }
+
+    autoScroll();
+}
 
 // scorrimento automatico infinito
 let scrollSpeed = 0.5;
