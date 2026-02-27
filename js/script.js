@@ -136,16 +136,16 @@ async function caricaChatbot() {
 // Carica il chatbot all'avvio
 caricaChatbot();
 
-async function inviaMessaggioBot() {
+async function inviaMessaggio() {
 
-    const input = document.getElementById('bot-input');
-    const chatBody = document.getElementById('chat-body');
+    const input = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-display');
 
-    if (!input || !chatBody || input.value.trim() === "") return;
+    if (!input || !chatBox || input.value.trim() === "") return;
 
     const msg = input.value.toLowerCase();
 
-    chatBody.innerHTML += `<div><b>tu:</b> ${input.value}</div>`;
+    chatBox.innerHTML += `<div><b>tu:</b> ${input.value}</div>`;
     input.value = "";
 
     setTimeout(async () => {
@@ -168,36 +168,11 @@ async function inviaMessaggioBot() {
                 botResponses["default"];
         }
 
-        chatBody.innerHTML += `<div style="color:#cd2121;"><b>bot:</b> ${response}</div>`;
-        chatBody.scrollTop = chatBody.scrollHeight;
+        chatBox.innerHTML += `<div style="color:#cd2121;"><b>bot:</b> ${response}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
 
     }, 500);
 }
 
-// --- SIDEBAR E BOT A SCOMPARSA ---
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Sidebar
-    const sidebar = document.getElementById("sidebar-left-container");
-    const toggleBtn = document.getElementById("toggleSidebar");
-
-    toggleBtn.onclick = () => {
-        sidebar.classList.toggle("sidebar-hidden");
-    };
-
-    // Chatbot
-    const bot = document.getElementById("chatbot");
-    const openBot = document.getElementById("openBot");
-    const closeBot = document.getElementById("closeBot");
-
-    openBot.onclick = () => {
-        bot.classList.remove("chatbot-hidden");
-    };
-
-    closeBot.onclick = () => {
-        bot.classList.add("chatbot-hidden");
-    };
-
-    // Inizializza sito
-    inizializzaSito();
-});
+// avvio sito
+document.addEventListener('DOMContentLoaded', inizializzaSito);
