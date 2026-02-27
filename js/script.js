@@ -35,13 +35,28 @@ async function inizializzaSito() {
     const track = document.getElementById('track-libri');
 
     if (datiLibri && datiLibri.libri && track) {
-        track.innerHTML = datiLibri.libri.map(l => `
-            <div class="slide-item">
-                <a href="${l.link}" target="_blank">
-                    <img src="${l.immagine}" alt="${l.titolo}" loading="lazy">
-                </a>
-            </div>
-        `).join('');
+        track.innerHTML = [...datiLibri.libri, ...datiLibri.libri].map(l => `
+    <div class="slide-item">
+        <a href="${l.link}" target="_blank">
+            <img src="${l.immagine}" alt="${l.titolo}" loading="lazy">
+        </a>
+    </div>
+`).join('');
+
+// scorrimento automatico infinito
+let scrollSpeed = 0.5;
+
+function autoScroll() {
+    track.scrollLeft += scrollSpeed;
+
+    if (track.scrollLeft >= track.scrollWidth / 2) {
+        track.scrollLeft = 0;
+    }
+
+    requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
     }
 
     // footer
