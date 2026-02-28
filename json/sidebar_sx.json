@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "funzione": "IMPIANTI_JIMBO",
+    "attivo": true,
+    "link": "https://iltuttofaidate.jimdofree.com/",
+    "descrizione": "Progetti Hi-Fi Car"
+  },
+  {
+    "id": 2,
+    "funzione": "SHOP_MAGLIETTE",
+    "attivo": true,
+    "link": "#",
+    "descrizione": "La mia Maglietta"
+  },
+  {
+    "id": 3,
+    "funzione": "VUOTO_1",
+    "attivo": false,
+    "link": "",
+    "descrizione": "Spazio disponibile"
+  },
+  {
+    "id": 4,
+    "funzione": "VUOTO_2",
+    "attivo": false,
+    "link": "",
+    "descrizione": "Spazio disponibile"
+  }
+]

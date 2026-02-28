@@ -1,15 +1,19 @@
+/* ============================================
+   IL LABORATORIO DI ANGELO - Stili
+   ============================================ */
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: arial, sans-serif;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
     background: #f4f4f4;
     color: #333;
 }
 
+/* HEADER */
 header {
     text-align: center;
     background: #003366;
@@ -17,173 +21,144 @@ header {
     padding: 20px;
     font-size: 1.5rem;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    letter-spacing: 1px;
 }
 
+.logo-centrale {
+    text-transform: uppercase;
+}
+
+/* LAYOUT PRINCIPALE */
 .main-layout {
     display: flex;
     max-width: 1400px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 20px;
     gap: 20px;
 }
 
+/* SIDEBAR SINISTRA */
 .sidebar-left {
     width: 200px;
     background: #111;
     color: white;
     padding: 15px;
-    position: sticky;
-    top: 0;
-    height: fit-content;
     border-radius: 8px;
-    margin: 20px;
+    min-height: fit-content;
 }
 
-.menu-section {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.nav-item {
-    color: white;
+.sidebar-left .nav-link {
     display: block;
-    padding: 12px 10px;
+    color: #ccc;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: all 0.3s;
 }
 
-.nav-item:hover {
+.sidebar-left .nav-link:hover {
     background: #333;
-}
-
-.nav-item-dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    background: #222;
-    flex-direction: column;
-    gap: 5px;
-    padding: 5px 0;
-    border-radius: 5px;
-    margin-top: 5px;
-}
-
-.nav-item-dropdown:hover .dropdown-content {
-    display: flex;
-}
-
-.dropdown-content a {
     color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.3s;
 }
 
-.dropdown-content a:hover {
-    background: #444;
+.sidebar-left .nav-link i {
+    margin-right: 8px;
 }
 
-.sidebar-right {
-    width: 260px;
-    padding: 20px;
-    background: white;
+/* CONTENUTO CENTRALE */
+.content-left {
+    flex: 1;
+    min-width: 0;
+}
+
+#titolo-sezione {
+    background: #003366;
+    color: white;
+    padding: 15px;
+    margin: 0 0 20px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    height: fit-content;
-    position: sticky;
-    top: 20px;
-}
-
-.riquadro-custom {
-    margin-bottom: 20px;
     text-align: center;
 }
 
-.riquadro-custom img {
-    width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.riquadro-custom img:hover {
-    transform: scale(1.05);
-}
-
-.riquadro-custom p {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.content-left {
-    flex: 1;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.content-left h1 {
-    color: #003366;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    text-transform: capitalize;
-}
-
+/* CARD PROGETTI */
 .card-progetto {
-    background: #f9f9f9;
+    background: white;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     border-left: 4px solid #cd2121;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card-progetto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card-progetto h3 {
     color: #003366;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
     font-size: 1.2rem;
 }
 
 .card-progetto p {
-    font-size: 0.95rem;
     color: #666;
-    margin-bottom: 15px;
     line-height: 1.5;
+    margin-bottom: 12px;
 }
 
 .btn-link {
+    display: inline-block;
     color: #cd2121;
     font-weight: bold;
     text-decoration: none;
-    font-size: 0.9rem;
     transition: color 0.3s;
 }
 
 .btn-link:hover {
-    color: #a01818;
     text-decoration: underline;
 }
 
+/* SIDEBAR DESTRA */
+.sidebar-right {
+    width: 260px;
+}
+
+.riquadro-custom {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.riquadro-custom a {
+    text-decoration: none;
+    color: #333;
+}
+
+.riquadro-custom img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.riquadro-custom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* CAROSELLO LIBRI */
 .carosello-container {
     background: white;
-    overflow: hidden;
     padding: 20px;
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 1400px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.carosello-container h3 {
+    margin: 0 0 15px 0;
+    color: #003366;
+    text-align: center;
 }
 
 .slider-track {
@@ -194,142 +169,223 @@ header {
     padding: 10px 0;
 }
 
-.slide-item {
-    flex-shrink: 0;
-    transition: transform 0.3s;
+.slider-track::-webkit-scrollbar {
+    height: 8px;
 }
 
-.slide-item:hover {
-    transform: scale(1.05);
+.slider-track::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.slider-track::-webkit-scrollbar-thumb {
+    background: #003366;
+    border-radius: 4px;
+}
+
+.slide-item {
+    flex-shrink: 0;
+    width: 120px;
 }
 
 .slide-item img {
+    width: 120px;
     height: 180px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    cursor: pointer;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s;
 }
 
-.chat-box {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 12px;
-    width: 300px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    border: 2px solid #003366;
-    z-index: 1000;
+.slide-item img:hover {
+    transform: scale(1.05);
 }
 
-#chat-display {
-    height: 150px;
-    overflow-y: auto;
-    font-size: 13px;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    max-height: 200px;
-}
-
-#chat-display div {
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-
-#user-input {
-    width: calc(100% - 60px);
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 13px;
-    margin-right: 5px;
-}
-
-.chat-box button {
-    width: 55px;
-    padding: 8px;
-    background: #cd2121;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.chat-box button:hover {
-    background: #a01818;
-}
-
+/* FOOTER */
 #footer-sito {
     background: #1a1a1a;
     color: #888;
     padding: 30px;
     text-align: center;
-    font-size: 0.9rem;
     margin-top: 40px;
-    border-top: 3px solid #003366;
 }
 
-#footer-sito p {
-    margin: 0;
+#footer-sito a {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+#footer-sito a:hover {
+    color: white;
+}
+
+/* ==================== CHATBOT ==================== */
+
+/* Icona Robot */
+#chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #003366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: transform 0.3s;
+}
+
+#chat-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Finestra Chat */
+#chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    overflow: hidden;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+}
+
+.chat-chiusa {
+    display: none !important;
+}
+
+#chat-header {
+    background: #003366;
+    color: white;
+    padding: 12px 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chat-header span {
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+#chat-header span:hover {
+    opacity: 1;
+}
+
+#chat-messages {
+    height: 280px;
+    overflow-y: auto;
+    padding: 15px;
+    background: #f9f9f9;
+}
+
+#chat-messages div {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+#chat-messages div:first-child {
+    background: #e3f2fd;
+}
+
+#chat-messages div:nth-child(2) {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+#chat-messages div[style*="color: #cd2121"] {
+    background: #fff5f5;
+    border-left: 3px solid #cd2121;
+}
+
+#chat-input-area {
+    display: flex;
+    border-top: 1px solid #ddd;
+    background: white;
+}
+
+#chat-input {
+    flex: 1;
+    border: none;
+    padding: 12px 15px;
+    font-size: 14px;
+}
+
+#chat-input:focus {
+    outline: none;
+}
+
+#chat-input-area button {
+    border: none;
+    background: #cd2121;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#chat-input-area button:hover {
+    background: #a31a1a;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 900px) {
     .main-layout {
         flex-direction: column;
     }
-
+    
     .sidebar-left,
     .sidebar-right {
         width: 100%;
-        position: static;
     }
-
+    
     .sidebar-left {
-        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .sidebar-left .nav-link {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    #chat-box {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
     }
 }
 
-@media (max-width: 768px) {
-    .content-left h1 {
-        font-size: 1.5rem;
-    }
-
-    .card-progetto {
+@media (max-width: 480px) {
+    header {
+        font-size: 1.1rem;
         padding: 15px;
     }
-
-    .chat-box {
-        width: 250px;
-        bottom: 10px;
-        right: 10px;
+    
+    .slide-item {
+        width: 100px;
     }
-
+    
     .slide-item img {
-        height: 120px;
+        width: 100px;
+        height: 150px;
     }
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #cd2121;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #a01818;
 }

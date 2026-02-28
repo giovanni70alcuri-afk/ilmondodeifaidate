@@ -1,0 +1,13 @@
+{
+  "parole": [
+    "libri",
+    "video",
+    "elettronica",
+    "restauro",
+    "recensioni",
+    "progetti",
+    "contatti",
+    "email"
+  ],
+  "default": "Scrivi: libri, video, elettronica, restauro, recensioni oppure contatti."
+}

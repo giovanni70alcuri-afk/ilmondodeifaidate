@@ -1,9 +1,6 @@
 {
-  "email_destinatario": "angelo@example.com",
-  "telefono": "+39 XXX XXX XXXX",
-  "social": {
-    "youtube": "https://www.youtube.com",
-    "instagram": "https://www.instagram.com",
-    "facebook": "https://www.facebook.com"
+  "configurazione_contatto": {
+    "destinatario_email": "angelo.cacioppo@email.it",
+    "oggetto_predefinito": "Richiesta dal Sito: Il Laboratorio di Angelo"
   }
 }

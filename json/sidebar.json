@@ -1,18 +1,44 @@
 [
-    {
-        "id": 1,
-        "funzione": "IMPIANTI_JIMBO",
-        "attivo": true,
-        "immagine": "https://via.placeholder.com/200x300?text=Progetti+Hi-Fi",
-        "link": "https://iltuttofaidate.jimdofree.com/",
-        "descrizione": "progetti hi-fi car"
-    },
-    {
-        "id": 2,
-        "funzione": "SHOP_MAGLIETTE",
-        "attivo": true,
-        "immagine": "https://via.placeholder.com/200x300?text=Shop+Magliette",
-        "link": "#",
-        "descrizione": "la mia maglietta"
-    }
+  {
+    "id": 1,
+    "funzione": "IMPIANTI_JIMBO",
+    "attivo": true,
+    "link": "https://iltuttofaidate.jimdofree.com/",
+    "descrizione": "Progetti Hi-Fi Car - Impianti audio per auto"
+  },
+  {
+    "id": 2,
+    "funzione": "SHOP_MAGLIETTE",
+    "attivo": true,
+    "link": "#",
+    "descrizione": "La mia Maglietta - Merchandising ufficiale"
+  },
+  {
+    "id": 3,
+    "funzione": "VUOTO_1",
+    "attivo": false,
+    "link": "",
+    "descrizione": "Spazio disponibile per Sponsor"
+  },
+  {
+    "id": 4,
+    "funzione": "VUOTO_2",
+    "attivo": false,
+    "link": "",
+    "descrizione": "Spazio disponibile per Sponsor"
+  },
+  {
+    "id": 5,
+    "funzione": "VUOTO_3",
+    "attivo": false,
+    "link": "",
+    "descrizione": "Spazio disponibile per Sponsor"
+  },
+  {
+    "id": 6,
+    "funzione": "VUOTO_4",
+    "attivo": false,
+    "link": "",
+    "descrizione": "Spazio disponibile per Sponsor"
+  }
 ]
