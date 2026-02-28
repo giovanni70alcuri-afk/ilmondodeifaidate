@@ -1,30 +1,74 @@
 [
   {
     "id": 1,
-    "funzione": "IMPIANTI_JIMBO",
+    "funzione": "MENU_HOME",
     "attivo": true,
-    "link": "https://iltuttofaidate.jimdofree.com/",
-    "descrizione": "Progetti Hi-Fi Car"
+    "link": "#",
+    "onclick": "mostraCategoria('home')",
+    "descrizione": "Home",
+    "icona": "fa-home"
   },
   {
     "id": 2,
-    "funzione": "SHOP_MAGLIETTE",
+    "funzione": "MENU_ELETTRONICA",
     "attivo": true,
     "link": "#",
-    "descrizione": "La mia Maglietta"
+    "onclick": "mostraCategoria('elettronica')",
+    "descrizione": "Elettronica",
+    "icona": "fa-microchip"
   },
   {
     "id": 3,
-    "funzione": "VUOTO_1",
-    "attivo": false,
-    "link": "",
-    "descrizione": "Spazio disponibile"
+    "funzione": "MENU_RESTAURO",
+    "attivo": true,
+    "link": "#",
+    "onclick": "mostraCategoria('restauro')",
+    "descrizione": "Restauro",
+    "icona": "fa-hammer"
   },
   {
     "id": 4,
-    "funzione": "VUOTO_2",
-    "attivo": false,
-    "link": "",
-    "descrizione": "Spazio disponibile"
+    "funzione": "MENU_RECENSIONI",
+    "attivo": true,
+    "link": "#",
+    "onclick": "mostraCategoria('recensioni_attrezzi')",
+    "descrizione": "Recensioni",
+    "icona": "fa-star"
+  },
+  {
+    "id": 5,
+    "funzione": "MENU_PROGETTI",
+    "attivo": true,
+    "link": "#",
+    "onclick": "mostraCategoria('deposito_progetti')",
+    "descrizione": "Progetti",
+    "icona": "fa-folder"
+  },
+  {
+    "id": 6,
+    "funzione": "MENU_VIDEO",
+    "attivo": true,
+    "link": "#",
+    "onclick": "mostraCategoria('video')",
+    "descrizione": "Video",
+    "icona": "fa-video"
+  },
+  {
+    "id": 7,
+    "funzione": "MENU_LIBRI",
+    "attivo": true,
+    "link": "#",
+    "onclick": "mostraCategoria('libri')",
+    "descrizione": "Libri",
+    "icona": "fa-book"
+  },
+  {
+    "id": 8,
+    "funzione": "MENU_CONTATTI",
+    "attivo": true,
+    "link": "#",
+    "onclick": "mostraCategoria('contatti')",
+    "descrizione": "Contatti",
+    "icona": "fa-envelope"
   }
 ]

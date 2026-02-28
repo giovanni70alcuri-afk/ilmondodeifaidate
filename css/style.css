@@ -145,6 +145,38 @@ header {
     font-size: 0.9rem;
 }
 
+/* CAROUSEL BOX SIDEBAR */
+.carousel-box {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: #f0f0f0;
+}
+
+.carousel-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-box img.active {
+    opacity: 1;
+}
+
+.riquadro-custom h4 {
+    color: #003366;
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+}
+
 /* CAROSELLO LIBRI */
 .carosello-container {
     background: white;

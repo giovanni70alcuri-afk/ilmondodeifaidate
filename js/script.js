@@ -14,26 +14,8 @@ async function caricaDati(url) {
     }
 }
 
-// --- INIZIALIZZAZIONE SITO ---
-async function inizializzaSito() {
-    
-    // Sidebar destra (senza immagini, solo testo)
-    const datiDX = await caricaDati('sidebar.json');
-    const contDX = document.getElementById('sidebar-sticky-container');
-    
-    if(datiDX && contDX) {
-        contDX.innerHTML = datiDX
-            .filter(i => i.attivo === true)
-            .map(i => `
-                <div class="riquadro-custom">
-                    <a href="${i.link}" target="_blank">
-                        <p><b>${i.descrizione}</b></p>
-                    </a>
-                </div>
-            `).join('');
-    }
-    
-    // Sidebar sinistra (menu)
+// --- SIDEBAR SINISTRA - MENU ---
+async function caricaMenu() {
     const datiSX = await caricaDati('sidebar_sx.json');
     const contSX = document.getElementById('sidebar-left-container');
     
@@ -41,14 +23,82 @@ async function inizializzaSito() {
         contSX.innerHTML = datiSX
             .filter(i => i.attivo === true)
             .map(i => `
-                <a href="${i.link}" target="_blank" class="nav-link">
-                    <i class="fas fa-external-link-alt"></i>
+                <a href="${i.link}" onclick="${i.onclick || ''}" class="nav-link">
+                    <i class="fas ${i.icona}"></i>
                     ${i.descrizione}
                 </a>
             `).join('');
     }
+}
+
+// --- SIDEBAR DESTRA - IMMAGINI ROTANTI ---
+async function caricaSidebarDX() {
+    const datiDX = await caricaDati('sidebar.json');
+    const contDX = document.getElementById('sidebar-sticky-container');
     
-    // Carosello libri
+    if(!datiDX || !contDX) return;
+    
+    // Box Jimbo
+    let htmlJimbo = '';
+    if(datiDX.jimbo) {
+        htmlJimbo = `
+            <div class="riquadro-custom">
+                <h4>${datiDX.jimbo.titolo}</h4>
+                <div class="carousel-box" id="carousel-jimbo">
+                    ${datiDX.jimbo.immagini.map((img, idx) => 
+                        `<img src="${img}" alt="Jimbo" class="${idx === 0 ? 'active' : ''}" loading="lazy">`
+                    ).join('')}
+                </div>
+                <a href="${datiDX.jimbo.link}" target="_blank" class="btn-link">Visitate il Sito →</a>
+            </div>
+        `;
+    }
+    
+    // Box Magliette
+    let htmlMagliette = '';
+    if(datiDX.magliette) {
+        htmlMagliette = `
+            <div class="riquadro-custom">
+                <h4>${datiDX.magliette.titolo}</h4>
+                <div class="carousel-box" id="carousel-magliette">
+                    ${datiDX.magliette.immagini.map((img, idx) => 
+                        `<img src="${img}" alt="Maglietta" class="${idx === 0 ? 'active' : ''}" loading="lazy">`
+                    ).join('')}
+                </div>
+                <a href="${datiDX.magliette.link}" target="_blank" class="btn-link">Acquista →</a>
+            </div>
+        `;
+    }
+    
+    contDX.innerHTML = htmlJimbo + htmlMagliette;
+    
+    // Avvia rotazione ogni 60 secondi
+    avviaCarousel('carousel-jimbo', datiDX.jimbo.immagini.length);
+    avviaCarousel('carousel-magliette', datiDX.magliette.immagini.length);
+}
+
+// --- ROTAZIONE IMMAGINI (60 secondi) ---
+let intervalliCarousel = [];
+
+function avviaCarousel(id, totale) {
+    let indice = 0;
+    const container = document.getElementById(id);
+    if(!container) return;
+    
+    const immagini = container.querySelectorAll('img');
+    
+    // Cambia ogni 60 secondi
+    const intervallo = setInterval(() => {
+        immagini.forEach(img => img.classList.remove('active'));
+        immagini[indice].classList.add('active');
+        indice = (indice + 1) % totale;
+    }, 60000); // 60000 ms = 60 secondi
+    
+    intervalliCarousel.push(intervallo);
+}
+
+// --- CAROSELLO LIBRI ---
+async function caricaLibri() {
     const datiLibri = await caricaDati('libri.json');
     const track = document.getElementById('track-libri');
     
@@ -60,10 +110,26 @@ async function inizializzaSito() {
                 </a>
             </div>
         `).join('');
-        avviaCarosello();
+        avviaCaroselloLibri();
     }
+}
+
+function avviaCaroselloLibri() {
+    const track = document.getElementById('track-libri');
+    if(!track) return;
     
-    // Footer
+    let scrollPos = 0;
+    setInterval(() => {
+        scrollPos += 1;
+        track.scrollLeft = scrollPos;
+        if(scrollPos >= track.scrollWidth / 2) {
+            scrollPos = 0;
+        }
+    }, 30);
+}
+
+// --- FOOTER ---
+async function caricaFooter() {
     const datiFooter = await caricaDati('footer.json');
     const footerBox = document.getElementById('footer-sito');
     
@@ -85,8 +151,33 @@ async function inizializzaSito() {
     }
 }
 
+// --- INIZIALIZZAZIONE COMPLETA ---
+async function inizializzaSito() {
+    await caricaMenu();
+    await caricaSidebarDX();
+    await caricaLibri();
+    await caricaFooter();
+}
+
 // --- MOSTRA CATEGORIE ---
 async function mostraCategoria(slug) {
+    // Home page content
+    if(slug === 'home' || slug === undefined) {
+        const area = document.getElementById('prodotti-lista');
+        const titoloSezione = document.getElementById('titolo-sezione');
+        if(titoloSezione) titoloSezione.innerText = "BENVENUTI NEL LABORATORIO";
+        if(area) {
+            area.innerHTML = `
+                <div class="card-progetto">
+                    <h3>Il Tutto Fai Da Te</h3>
+                    <p>Benvenuti nel mio laboratorio! Qui trovi progetti di elettronica, restauro di apparecchi d'epoca, recensioni attrezzi e i miei libri.</p>
+                    <p>Seleziona una categoria dal menu a sinistra per esplorare i contenuti.</p>
+                </div>
+            `;
+        }
+        return;
+    }
+    
     const area = document.getElementById('prodotti-lista');
     const titoloSezione = document.getElementById('titolo-sezione');
     
@@ -115,6 +206,8 @@ async function mostraCategoria(slug) {
          dati.restauro || 
          dati.elettronica ||
          dati.libri ||
+         dati.jimbo ||
+         dati.magliette ||
          []);
     
     if(lista && lista.length > 0) {
@@ -134,21 +227,6 @@ async function mostraCategoria(slug) {
     } else {
         area.innerHTML = '<p style="text-align:center;padding:20px;">Categoria vuota.</p>';
     }
-}
-
-// --- CAROSELLO LIBRI ---
-function avviaCarosello() {
-    const track = document.getElementById('track-libri');
-    if(!track) return;
-    
-    let scrollPos = 0;
-    setInterval(() => {
-        scrollPos += 1;
-        track.scrollLeft = scrollPos;
-        if(scrollPos >= track.scrollWidth / 2) {
-            scrollPos = 0;
-        }
-    }, 30);
 }
 
 // --- AVVIO ---

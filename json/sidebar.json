@@ -1,44 +1,26 @@
-[
-  {
-    "id": 1,
-    "funzione": "IMPIANTI_JIMBO",
-    "attivo": true,
+{
+  "jimbo": {
+    "titolo": "Progetti Hi-Fi Car",
     "link": "https://iltuttofaidate.jimdofree.com/",
-    "descrizione": "Progetti Hi-Fi Car - Impianti audio per auto"
+    "immagini": [
+      "https://picsum.photos/300/400?random=1",
+      "https://picsum.photos/300/400?random=2",
+      "https://picsum.photos/300/400?random=3",
+      "https://picsum.photos/300/400?random=4",
+      "https://picsum.photos/300/400?random=5",
+      "https://picsum.photos/300/400?random=6"
+    ]
   },
-  {
-    "id": 2,
-    "funzione": "SHOP_MAGLIETTE",
-    "attivo": true,
+  "magliette": {
+    "titolo": "La Mia Maglietta",
     "link": "#",
-    "descrizione": "La mia Maglietta - Merchandising ufficiale"
-  },
-  {
-    "id": 3,
-    "funzione": "VUOTO_1",
-    "attivo": false,
-    "link": "",
-    "descrizione": "Spazio disponibile per Sponsor"
-  },
-  {
-    "id": 4,
-    "funzione": "VUOTO_2",
-    "attivo": false,
-    "link": "",
-    "descrizione": "Spazio disponibile per Sponsor"
-  },
-  {
-    "id": 5,
-    "funzione": "VUOTO_3",
-    "attivo": false,
-    "link": "",
-    "descrizione": "Spazio disponibile per Sponsor"
-  },
-  {
-    "id": 6,
-    "funzione": "VUOTO_4",
-    "attivo": false,
-    "link": "",
-    "descrizione": "Spazio disponibile per Sponsor"
+    "immagini": [
+      "https://picsum.photos/300/400?random=10",
+      "https://picsum.photos/300/400?random=11",
+      "https://picsum.photos/300/400?random=12",
+      "https://picsum.photos/300/400?random=13",
+      "https://picsum.photos/300/400?random=14",
+      "https://picsum.photos/300/400?random=15"
+    ]
   }
-]
+}
