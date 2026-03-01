@@ -6,7 +6,6 @@
     <title>Il Laboratorio di Angelo | Il Tutto Fai Da Te</title>
     <meta name="description" content="Progetti Hi-Fi, elettronica, restauro e libri di Angelo Cacioppo">
     
-    <!-- Stili -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -20,23 +19,23 @@
         </div>
     </header>
 
-    <!-- Sidebar Sinistra (Menu - caricato da JSON) -->
-    <nav class="sidebar-left" id="sidebar-left-container">
-        <!-- Menu caricato automaticamente da sidebar_sx.json -->
-    </nav>
-
-    <!-- Carosello Libri -->
+    <!-- Carosello Libri (sopra tutto) -->
     <div class="carosello-container">
         <h3><i class="fas fa-book-open" style="margin-right:10px;"></i>I Miei Libri</h3>
         <div class="slider-track" id="track-libri"></div>
     </div>
 
-    <!-- Layout Principale -->
-    <main class="main-layout">
+    <!-- Layout Principale con 3 colonne: menu | contenuto | box -->
+    <div class="site-container">
         
-        <!-- Contenuto Centrale -->
-        <section class="content-left">
-            <h1 id="titolo-sezione">Benvenuti nel Laboratorio</h1>
+        <!-- COLONNA 1: Menu laterale sinistro -->
+        <nav class="sidebar-left" id="sidebar-left-container">
+            <!-- Menu caricato da JSON -->
+        </nav>
+
+        <!-- COLONNA 2: Contenuto centrale -->
+        <main class="content-area">
+            <h1 id="titolo-sezione">BENVENUTI NEL LABORATORIO</h1>
             <div id="prodotti-lista">
                 <div class="card-progetto">
                     <h3>Il Tutto Fai Da Te</h3>
@@ -44,24 +43,20 @@
                     <p>Seleziona una categoria dal menu a sinistra per esplorare i contenuti.</p>
                 </div>
             </div>
-        </section>
+        </main>
 
-        <!-- Sidebar Destra -->
-        <aside class="sidebar-right">
-            <div id="sidebar-sticky-container"></div>
+        <!-- COLONNA 3: Box laterale destro -->
+        <aside class="sidebar-right" id="sidebar-sticky-container">
+            <!-- Box caricati da JSON -->
         </aside>
 
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer id="footer-sito"></footer>
 
-    <!-- Chatbot Toggle -->
-    <div id="chat-toggle">
-        🤖
-    </div>
-
-    <!-- Chatbot Box -->
+    <!-- Chatbot -->
+    <div id="chat-toggle">🤖</div>
     <div id="chat-box" class="chat-chiusa">
         <div id="chat-header">
             Assistente
@@ -74,11 +69,7 @@
         </div>
     </div>
 
-    <!-- Script Principale -->
     <script src="js/script.js"></script>
-    
-    <!-- Chatbot -->
     <script src="chatbot/chatbot.js"></script>
-
 </body>
 </html>
